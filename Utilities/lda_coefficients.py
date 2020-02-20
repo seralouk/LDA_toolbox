@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import LeavePOut
 from sklearn.metrics import confusion_matrix
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.model_selection import cross_val_score
 from sklearn.svm import LinearSVC
@@ -20,7 +20,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 import os
 
-save_results_to = '/Users/miplab/Desktop/LDA_toolbox/Results/'
+save_results_to = '/Users/loukas/Desktop/LDA_toolbox_new/Results/'
 if not os.path.exists(save_results_to):
     os.makedirs(save_results_to)
 

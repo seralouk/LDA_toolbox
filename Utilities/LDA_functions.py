@@ -10,8 +10,9 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 import matplotlib.pyplot as plt
 from sklearn.model_selection import LeaveOneOut
 from sklearn.metrics import confusion_matrix
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn import metrics
+from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_val_score
 
 
@@ -30,10 +31,8 @@ def call_LDA_LOOCV(X,y, verbose=0):
 	"""
 
 	###### Standardize Data ###########
-	sc = StandardScaler()
-	X = sc.fit_transform(X)
+	pipe= Pipeline([('scaler', StandardScaler()), ('clf', LinearDiscriminantAnalysis())])
 	loo = LeaveOneOut()
-	lda = LinearDiscriminantAnalysis()
 	if verbose:
 		print("The number of splits is:{}\n".format(loo.get_n_splits(X)))
 
@@ -43,10 +42,10 @@ def call_LDA_LOOCV(X,y, verbose=0):
 
 	for i,j in loo.split(X):
 
-  		X_train, X_test = X[i], X[j]
+		X_train, X_test = X[i], X[j]
 		y_train, y_test = y[i], y[j]
-		lda.fit(X_train, y_train)
-		y_pred = lda.predict(X_test)
+		pipe.fit(X_train, y_train)
+		y_pred = pipe.predict(X_test)
 		test_fold_predictions.append(y_pred)
 		y_test_all.append(y_test)
 	if verbose:
@@ -63,7 +62,7 @@ def call_LDA_LOOCV(X,y, verbose=0):
 	#plt.show(block = False)   
 
 	###################### 2nd way using sklearn build-in functions ###################
-	scores = cross_val_score(lda, X, y, cv=loo,scoring="accuracy")
+	scores = cross_val_score(pipe, X, y, cv=loo, scoring="accuracy")
 	if verbose:
 		print("Accuracy of 2nd way is %r\n" %np.mean(scores))
 	#plt.show()

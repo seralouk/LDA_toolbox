@@ -21,13 +21,14 @@ def nodal_eff(g):
     Returns:
      The nodal efficiency of each node of the graph
     """
-    
-    g.es["weight"] = [1.0 / x for x in g.es["weight"]]
-    sp = g.shortest_paths_dijkstra(weights=g.es["weight"])
-    sp = asarray(sp)
-    temp =1/sp
-    fill_diagonal(temp,0)
-    N=temp.shape[0]
-    ne= ( 1.0 / (N-1)) * apply_along_axis(sum,0,temp)
+    weights = g.es["weight"][:]
+    weights = [1.0 / x for x in weights]
+    sp = (1.0 / array(g.shortest_paths_dijkstra(weights=weights)))
+    fill_diagonal(sp,0)
+    N=sp.shape[0]
+    if N == 1:
+        ne= (1.0/(N)) * apply_along_axis(sum,0,sp)
+    else:
+        ne= (1.0/(N-1)) * apply_along_axis(sum,0,sp)
 
     return ne
