@@ -986,10 +986,12 @@ def ebm_1_extract_data(df,bl,markers,dx_column='DX',sub='EP',events_set='data-dr
     if events_set=='updated_LE':
         # this is the LE dataset
         if sub=='EP':
-            markers_to_remove_postMM = ['deg_1','ne_1','deg_3','ne_2','ne_3', 'cc_0','cc_1','cc_2','cc_3','cc_4','cc_5'] # Non-monotonic P(event)
+            markers_to_remove_postMM = ['deg_1','ne_1','deg_3','ne_2','ne_3', 'cc_0',
+                                        'cc_1','cc_2','cc_3','cc_4','cc_5'] # Non-monotonic P(event)
             markers_to_remove_postCV = []
         elif sub=='IUGR':
-            markers_to_remove_postMM = ['deg_0','ne_0','deg_1','ne_1','ne_3','ne_4', 'cc_0','cc_1','cc_2','cc_3','cc_4','cc_5'] #* Increase with abnormality: cc3, cc4, ne6
+            markers_to_remove_postMM = ['deg_0','ne_0','deg_1','ne_1','deg_3','ne_3', 
+                                        'cc_0','cc_1','cc_2','cc_3','cc_4','cc_5'] #* Increase with abnormality: cc3, cc4, ne6
             markers_to_remove_postCV = []
         elif sub=='EP+IUGR':
             markers_to_remove_postMM = []
@@ -998,10 +1000,12 @@ def ebm_1_extract_data(df,bl,markers,dx_column='DX',sub='EP',events_set='data-dr
     elif events_set=='updated_FG':
         # Fast greedy dataset, CODE RAISES SINGULAR MATRIX ERROR FOR THIS CASE
         if sub=='EP':
-            markers_to_remove_postMM = ['deg_1','ne_1', 'cc_0','cc_1','cc_2','cc_3','cc_4','cc_5', 'cc_6', 'cc_7'] # Non-monotonic P(event)
+            markers_to_remove_postMM = ['deg_1','ne_1', 'cc_0','cc_1','cc_2','cc_3',
+                                        'cc_4','cc_5', 'cc_6', 'cc_7'] # Non-monotonic P(event)
             markers_to_remove_postCV = []
         elif sub=='IUGR':
-            markers_to_remove_postMM = ['deg_0', 'ne_1', 'cc_0','cc_1','cc_2','cc_3','cc_4','cc_5', 'cc_6', 'cc_7'] #* Increase with abnormality: cc3, cc4, ne6
+            markers_to_remove_postMM = ['deg_0', 'ne_1', 'cc_0','cc_1','cc_2','cc_3',
+                                        'cc_4','cc_5', 'cc_6', 'cc_7'] #* Increase with abnormality: cc3, cc4, ne6
             markers_to_remove_postCV = []
         elif sub=='EP+IUGR':
             markers_to_remove_postMM = []
@@ -1021,7 +1025,8 @@ def ebm_1_extract_data(df,bl,markers,dx_column='DX',sub='EP',events_set='data-dr
     elif events_set=='lobes':
         if sub=='EP':
             markers_to_remove_postMM = ['deg_1_lob','cc_7_lob','cc_11_lob'] # cc_9_lob (bit dodgy), ne_11_lob (p_event skewed right)
-            markers_to_remove_postCV = ['deg_3_lob','ne_3_lob','cc_7_lob','cc_5_lob','ne_7_lob','cc_11_lob','cc_2_lob','cc_12_lob'] 
+            markers_to_remove_postCV = ['deg_3_lob','ne_3_lob','cc_7_lob','cc_5_lob',
+                                        'ne_7_lob','cc_11_lob','cc_2_lob','cc_12_lob'] 
             # deg4, deg7, cc10, deg11, deg8, ne10, deg10, cc9
         elif sub=='IUGR':
             markers_to_remove_postMM = ['deg_4_lob','ne_4_lob','cc_5_lob','cc_10_lob'] #cc_4_lob
@@ -1045,19 +1050,23 @@ def ebm_1_extract_data(df,bl,markers,dx_column='DX',sub='EP',events_set='data-dr
 
     elif events_set=='lobes_2020_b': # all CC were removed
         if sub=='EP':
-            markers_to_remove_postMM = ['deg_1_lob', 'ne_1_lob','ne_11_lob'] 
+            markers_to_remove_postMM = ['deg_1_lob', 'ne_1_lob', 'deg_5_lob', 'ne_5_lob', 'deg_7_lob', 
+                                        'ne_7_lob' ,'deg_10_lob', 'ne_10_lob','ne_11_lob']
             markers_to_remove_postCV = [] 
         elif sub=='IUGR':
-            markers_to_remove_postMM = ['deg_2_lob', 'ne_2_lob', 'deg_4_lob','deg_13_lob', 'ne_13_lob']
+            markers_to_remove_postMM = ['deg_2_lob', 'ne_2_lob', 'deg_4_lob','ne_4_lob','deg_5_lob', 
+                                        'ne_5_lob','deg_7_lob','ne_7_lob','deg_8_lob','ne_8_lob',  
+                                        'deg_10_lob','ne_10_lob', 'deg_13_lob', 'ne_13_lob']
             markers_to_remove_postCV = []
 
     elif events_set=='updated_FG_b':
         # all CCs were removed, community 3 was removed (has a lot of 0s)
         if sub=='EP':
-            markers_to_remove_postMM = ['ne_5', 'ne_6', 'ne_7'] # Non-monotonic P(event)
+            markers_to_remove_postMM = ['deg_0','deg_5','ne_5', 'ne_6', 'ne_7'] # Non-monotonic P(event)
             markers_to_remove_postCV = []
         elif sub=='IUGR':
-            markers_to_remove_postMM = ['deg_1', 'ne_5', 'deg_6','ne_6'] # Non-monotonic P(event)
+            markers_to_remove_postMM = ['deg_0','ne_0','deg_1','ne_1', 'deg_5',
+                                        'ne_5', 'deg_6','ne_6'] # Non-monotonic P(event)
             markers_to_remove_postCV = []
         elif sub=='EP+IUGR':
             markers_to_remove_postMM = []
