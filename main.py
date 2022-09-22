@@ -176,9 +176,6 @@ if verbose:
 else:
 	plot(plot_com, save_results_to + 'MEAN_FG.pdf', mark_groups = True, layout=layout, **visual_style)
 
-
-""" Until here, for Neil
-
 os.chdir(save_results_to)
 
 
@@ -347,7 +344,7 @@ plt.close()
 # Cross validated ROCs 
 # use subplots_all_ROCS.py in Utilities folder inside the toolbox's main folder.
 
-"""
+
 
 
 
