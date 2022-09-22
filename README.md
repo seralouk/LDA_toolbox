@@ -1,5 +1,7 @@
 ## LDA_toolbox
 
+### Author: Serafeim Loukas, PhD, serafeim.loukas@unige.ch
+
 ### This is the main repository for the code used for the project entitled: "Adaptive linear discriminant analysis for complex networks to study extreme prematurity and intrauterine growth restriction effects at school age"
 
 ---
