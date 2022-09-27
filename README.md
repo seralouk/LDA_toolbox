@@ -20,3 +20,6 @@ Note:
 
 
 Usage: In the main directory, launch python3 main.py
+
+
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vT7uCDgIeeiSdFLLOJziKUXgaKLR8zBDiecCnggl8cnn-_irxQjnr_dCIxePPFt2Q0NnECH5duNWK18/pub?embedded=true"></iframe>
