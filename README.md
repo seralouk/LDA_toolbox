@@ -6,8 +6,7 @@
 
 ---
 
-#### Study published online at: Proc. Intl. Soc. Mag. Reson. Med. 26 (2018): https://index.mirasmart.com/ISMRM2018/PDFfiles/5214.html
-
+#### Study published online at: Proc. Intl. Soc. Mag. Reson. Med. 26 (2018): https://cds.ismrm.org/protected/18MProceedings/PDFfiles/5214.html
 ----
 
 
